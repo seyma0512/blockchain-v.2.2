@@ -1,0 +1,327 @@
+/* Fondo de la página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1e2a3a; /* Fondo oscuro */
+    margin: 0;
+    padding: 20px;
+    color: #ecf0f1; /* Texto claro */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    line-height: 1.6; /* Mejora la legibilidad */
+}
+
+/* Título principal */
+h1 {
+    font-size: 48px; 
+    color: transparent; /* El texto será transparente para mostrar el gradiente */
+    background: linear-gradient(45deg, #16a085, #1abc9c); /* Gradiente */
+    background-clip: text; /* Funciona en navegadores que lo soportan sin el prefijo */
+    -webkit-background-clip: text; /* Asegura compatibilidad en WebKit */
+    text-align: center;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 3px; 
+    font-weight: bold;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); 
+    line-height: 1.2; 
+    padding: 10px;
+}
+
+/* Barra de búsqueda debajo del título */
+.search-bar {
+    width: 100%;
+    margin-bottom: 40px;
+    background-color: #34495e; /* Fondo gris oscuro */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Sombra más suave y difusa */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Estilo para los contenedores de búsqueda */
+.search-container {
+    display: flex;
+    flex-wrap: wrap; /* Los elementos se ajustan si el tamaño es pequeño */
+    gap: 20px; /* Espacio entre los elementos */
+    justify-content: center; /* Centra los elementos */
+    align-items: center; /* Centra los elementos verticalmente */
+}
+
+/* Estilo para cada elemento de búsqueda */
+.search-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%; /* Asegura que los elementos ocupen todo el espacio disponible */
+    max-width: 100px; /* Ancho máximo reducido */
+    min-width: 250px; /* Ancho mínimo reducido */
+    height: 170px; /* Altura reducida */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #2c3e50;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: transform 0.2s ease, box-shadow 0.3s ease; /* Efectos de transición */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
+}
+
+/* Efecto al pasar el mouse sobre cada ítem de búsqueda */
+.search-item:hover {
+    transform: translateY(-5px); /* Elevación al hacer hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+}
+
+/* Estilo para las etiquetas de los campos de búsqueda */
+label {
+    font-size: 16px;
+    color: #ecf0f1;
+    margin-bottom: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilo para los campos de búsqueda (input y select) */
+input, select {
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #3c4e61;
+    background-color: #34495e;
+    color: #ecf0f1;
+    width: 100%; /* Asegura que los campos ocupen todo el ancho disponible */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave para el enfoque */
+}
+
+/* Ajuste de color para el enfoque */
+input:focus, select:focus {
+    outline: none;
+    border-color: #1abc9c; /* Brillo en los campos al seleccionarlos */
+    box-shadow: 0 0 8px rgba(26, 188, 156, 0.8); /* Brillo en el enfoque */
+}
+
+/* Ajustes para el botón */
+button {
+    background-color: #16a085;
+    color: #ffffff;
+    padding: 12px 28px;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Sombra sutil para el botón */
+}
+
+button:hover {
+    background-color: #1abc9c;
+    transform: scale(1.05);
+}
+
+/* Estilo para los elementos de búsqueda en línea */
+#blockDetails {
+    display: none; /* Oculto inicialmente */
+    margin-top: 30px;
+    width: 100%;
+    max-width: 900px;
+    padding: 25px;
+    background-color: #2d3b47;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.5s ease-out; /* Animación de aparición */
+}
+
+/* Animación de aparición para el contenedor */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Estilo para los bloques */
+#blockDetails div {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #34495e;
+    border: 1px solid #3c4e61;
+    transition: transform 0.3s ease;
+}
+
+#blockDetails div:hover {
+    transform: scale(1.02);
+}
+
+#blockDetails h3 {
+    color: #ecf0f1;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#blockDetails p {
+    color: #bdc3c7;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* Media query para hacerlo responsivo */
+@media (max-width: 768px) {
+    .search-container {
+        flex-direction: column; /* Cambia la disposición de horizontal a vertical */
+        align-items: flex-start;
+    }
+
+    .search-item {
+        width: 100%; /* Los campos de búsqueda ocupan el 100% del ancho */
+        height: auto; /* Permite que los contenedores se ajusten al contenido */
+    }
+}
+
+/*----------------------------------------------------------------------*/
+
+/* Estilos generales para el contenedor de detalles de los bloques */
+#blockDetails {
+    display: none; /* Oculto inicialmente */
+    margin-top: 30px;
+    width: 100%;
+    max-width: 700px; /* Reducido el ancho máximo del contenedor */
+    padding: 25px;
+    background-color: #2d3b47;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.5s ease-out; /* Animación de aparición */
+}
+
+/* Animación de aparición para el contenedor */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Estilo para los bloques */
+#blockDetails div {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px; /* Bordes más suaves */
+    background-color: #34495e;
+    border: 2px solid #3c4e61; /* Sutil borde de separación */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra más suave */
+    max-width: 600px; /* Reducido el ancho máximo de los bloques */
+    margin: 0 auto; /* Centra los bloques */
+}
+
+/* Efecto al pasar el mouse sobre los bloques */
+#blockDetails div:hover {
+    transform: translateY(-5px); /* Eleva el bloque al hacer hover */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Sombra más intensa */
+}
+
+/* Títulos dentro de los bloques */
+#blockDetails h3 {
+    color: #f1ecec;
+    font-size: 26px;
+    margin-bottom: 12px;
+    font-weight: bold;
+    text-transform: uppercase; /* Mayúsculas para los títulos */
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para dar más énfasis */
+}
+
+/* Estilo de los párrafos dentro de los bloques */
+#blockDetails p {
+    color: #bdc3c7;
+    margin: 10px 0;
+    font-size: 20px;
+    line-height: 1.5; /* Mejor separación para el texto */
+}
+
+/* Estilo de las listas de archivos */
+#blockDetails ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#blockDetails ul li {
+    margin-bottom: 12px; /* Mayor espacio entre los archivos */
+    color: #ecf0f1;
+    font-size: 16px;
+}
+
+/* Estilo de los enlaces dentro de las listas de archivos */
+#blockDetails ul li a {
+    color: #1abc9c;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Efecto de hover para los enlaces */
+#blockDetails ul li a:hover {
+    color: #2b3d4e;
+    background-color: #1abc9c; /* Fondo al pasar el ratón */
+}
+
+/* Estilo para los botones dentro de los bloques */
+#blockDetails button {
+    background-color: #1abc9c;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#blockDetails button:hover {
+    background-color: #16a085;
+    transform: scale(1.05);
+}
+
+/* Media query para hacerlo responsivo */
+@media (max-width: 768px) {
+    #blockDetails {
+        padding: 15px;
+        width: 100%;
+    }
+
+    #blockDetails div {
+        margin-bottom: 15px;
+    }
+
+    #blockDetails h3 {
+        font-size: 22px;
+    }
+
+    #blockDetails p {
+        font-size: 14px;
+    }
+
+    #blockDetails ul li a {
+        font-size: 14px;
+    }
+
+    #blockDetails button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

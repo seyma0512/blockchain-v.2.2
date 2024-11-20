@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control</title>
+    <link rel="stylesheet" href="../css/center.css">
+    <script src="../js/center.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido al Panel de Control</h1>
+
+        <!-- Separador visual -->
+        <div class="separator"></div>
+
+        <!-- Contenedor de los módulos, donde se agregarán dinámicamente los botones -->
+        <div id="modules-container">
+            <!-- Aquí se agregarán dinámicamente los módulos según los privilegios -->
+        </div>
+
+        <!-- Separador visual -->
+        <div class="separator"></div>
+
+        <!-- Texto debajo de los módulos -->
+        <p class="info-text">Accede a tus bloques o sube nuevos archivos al sistema.</p>
+
+        <!-- Campo oculto para la firma digital -->
+        <input type="hidden" id="digital-signature" name="digital_signature">
+    </div>
+
+    <!-- Botón de Cerrar Sesión -->
+    <button class="btn logout-btn" id="logout-btn">Cerrar Sesión</button>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Bloque</title>
+    <script src="../js/upload.js" defer></script> <!-- Asegúrate de que el archivo JS esté en la misma carpeta o ajusta la ruta -->
+    <link rel="stylesheet" href="../css/upload.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Subir Bloque</h1>
+        
+        <form id="upload-form" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="chain">Cadena:</label>
+                <select id="chain" name="chain" required>
+                    <option value="block_pdf">PDF</option>
+                    <option value="block_pdf_audio">Audio</option>
+                    <option value="block_pdf_video">Video</option>
+                    <option value="block_pdf_audio_video">PDF + Audio + Video</option>
+                </select>
+            </div>
+        
+            <div class="form-group">
+                <label for="file">Archivos (PDF, Audio, Video):</label>
+                <input type="file" id="file" name="file" accept="application/pdf, audio/mp3, video/mp4" multiple required>
+            </div>
+        
+            <input type="hidden" id="digital-signature" name="digital_signature" value="">
+        
+            <div class="form-group">
+                <label for="description">Descripción:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+        
+            <div class="form-group">
+                <label for="location">Ubicación:</label>
+                <select id="location" name="location" required>
+                    <option value="Lima">Lima</option>
+                    <option value="Villa el Salvador">Villa el Salvador</option>
+                    <option value="Lurín">Lurín</option>
+                    <option value="Miraflores">Miraflores</option>
+                </select>
+            </div>
+        
+            <div class="form-group">
+                <label for="incident-type">Tipo de Incidente:</label>
+                <select id="incident-type" name="incidentType" required>
+                    <option value="Accidente Automovilístico">Accidente Automovilístico</option>
+                    <option value="Homicidio">Homicidio</option>
+                    <option value="Asalto">Asalto</option>
+                    <option value="Violencia Familiar">Violencia Familiar</option>
+                </select>
+            </div>
+        
+            <button type="submit" class="btn">Subir Bloque</button>
+        
+            <!-- Contenedor para mostrar mensajes -->
+            <div id="status-message" class="status-message"></div>
+        </form>        
+        <div id="preview"></div> <!-- Contenedor para la previsualización de archivos -->
+    </div>
+</body>
+</html>

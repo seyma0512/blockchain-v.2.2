@@ -1,0 +1,45 @@
+/* Estilo general de la página */
+body {
+    font-family: 'Arial', sans-serif; /* Fuente estándar */
+    background-color: #1e2a3a; /* Fondo oscuro */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #ecf0f1; /* Color de texto claro */
+}
+
+/* Contenedor principal */
+.container {
+    background: #2d3b47; /* Fondo oscuro con sombra sutil */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    max-width: 480px;
+    width: 100%;
+    border: 1px solid #3c4e61; /* Borde más oscuro */
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    color: #ecf0f1;
+    font-size: 28px; /* Tamaño moderado */
+    margin-bottom: 25px;
+    font-weight: 600; /* Negrita */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 500px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}

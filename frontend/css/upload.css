@@ -1,0 +1,197 @@
+/* Estilo general de la página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1e2a3a; /* Fondo oscuro */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alineación desde arriba */
+    height: 100vh;
+    color: #ecf0f1; /* Color de texto claro */
+    overflow-y: auto; /* Permitir el desplazamiento cuando sea necesario */
+}
+
+/* Contenedor principal */
+.container {
+    background: #2d3b47; /* Fondo oscuro con sombra sutil */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid #3c4e61; /* Borde más oscuro */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aseguramos que el contenido comience desde arriba */
+    align-items: center;
+    overflow: hidden; /* Evitar desplazamiento en el contenedor principal */
+    position: relative; /* Posicionamiento relativo para control de contenedor */
+}
+
+/* Título */
+h1 {
+    font-size: 36px; /* Tamaño grande */
+    color: #ecf0f1;
+    margin-bottom: 30px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Estilo de los campos del formulario */
+.form-group {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    font-size: 16px;
+    color: #ecf0f1;
+    margin-bottom: 8px;
+    display: block;
+}
+
+input[type="text"], select, textarea, input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 8px;
+    border-radius: 8px;
+    border: 1px solid #3c4e61;
+    background-color: #34495e;
+    color: #ecf0f1;
+}
+
+textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+input[type="file"] {
+    padding: 10px;
+}
+
+/* Estilo para los botones */
+.btn {
+    background-color: #16a085; /* Verde oscuro */
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    width: 100%; /* Ancho del botón */
+    max-width: 300px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #1abc9c; /* Verde más brillante */
+    transform: scale(1.05); /* Efecto de aumento */
+}
+
+.btn:active {
+    background-color: #1abc9c;
+    transform: scale(1); /* Efecto de compresión */
+}
+
+/* Estilo para previsualización de archivos */
+#preview {
+    background-color: #34495e;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #3c4e61;
+    margin-top: 20px;
+    display: grid; /* Usamos grid para mostrar múltiples previsualizaciones */
+    grid-template-columns: 1fr; /* Dos columnas */
+    gap: 20px; /* Espacio entre los elementos */
+    overflow-y: auto; /* Permitir desplazamiento vertical dentro de la previsualización */
+    max-height: 500px; /* Limitar la altura del contenedor */
+    display: none; /* Inicialmente oculto */
+}
+
+/* Previsualización de cada archivo (imagen, video, etc.) */
+.preview-item {
+    background-color: #34495e;
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #3c4e61;
+    max-width: 100%; /* Evitar que se expandan fuera del contenedor */
+}
+
+.preview-item img, .preview-item video, .preview-item audio {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Estilo del mensaje de estado */
+.status-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    animation: fadeIn 0.5s ease-out; /* Animación de aparición suave */
+}
+
+/* Mensaje de éxito */
+.success {
+    background-color: #2ecc71;
+    color: #ffffff;
+    border: 1px solid #27ae60;
+    box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
+    animation: shake 9s ease-out, fadeOut 30s forwards; /* Animación de éxito y desvanecimiento */
+}
+
+/* Mensaje de error */
+.error {
+    color: #e74c3c; /* Rojo brillante */
+    font-size: 16px;
+    text-align: center;
+    margin-top: 15px;
+    padding: 15px;
+    background-color: rgba(231, 76, 60, 0.2); /* Fondo rojo suave */
+    border: 1px solid #e74c3c;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+    font-weight: bold; /* Negrita */
+    animation: shake 9s ease-out, fadeOut 30s forwards; /* Animación de sacudida y desvanecimiento */
+}
+
+/* Animación para el mensaje de error */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Animación para el mensaje de éxito */
+@keyframes successAnimation {
+    0% { transform: scale(0.95); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Animación de aparición para los mensajes */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Animación para desvanecer el mensaje */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

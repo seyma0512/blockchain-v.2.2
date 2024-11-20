@@ -1,0 +1,210 @@
+/* Estilo general de la página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1e2a3a; /* Fondo oscuro */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #ecf0f1; /* Color de texto claro */
+}
+
+/* Contenedor principal */
+.container {
+    background: #2d3b47; /* Fondo oscuro con sombra sutil */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 480px;
+    border: 1px solid #3c4e61; /* Borde más oscuro */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease-out; /* Animación de entrada */
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Título */
+h1 {
+    font-size: 36px; /* Tamaño grande */
+    color: #ecf0f1;
+    margin-bottom: 30px; /* Mayor margen inferior */
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Separador visual */
+.separator {
+    width: 80%;
+    height: 2px;
+    background-color: #3c4e61;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    animation: slideIn 1s ease-out; /* Animación de aparición del separador */
+}
+
+/* Animación de entrada para los separadores */
+@keyframes slideIn {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 80%;
+    }
+}
+
+/* Estilo de los botones de redirección */
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espacio entre botones */
+    width: 100%;
+    align-items: center; /* Centra los botones */
+    animation: fadeInUp 1s ease-out; /* Animación para el contenedor de botones */
+}
+
+/* Animación para los contenedores de botones */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo para el botón de cerrar sesión */
+.logout-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #e74c3c, #c0392b); /* Fondo degradado */
+    color: white;
+    padding: 10px 5px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 8px;
+    width: 20%; /* Ancho reducido del botón */
+    max-width: 150px; /* Máximo ancho del botón */
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.logout-btn:hover {
+    background: linear-gradient(135deg, #c0392b, #e74c3c); /* Cambio de fondo en hover */
+    transform: scale(1.05); /* Efecto de aumento */
+}
+
+.logout-btn:active {
+    background: linear-gradient(135deg, #c0392b, #d35400); /* Fondo más oscuro al presionar */
+    transform: scale(1); /* Efecto de compresión */
+}
+
+/* Estilo para el botón dentro del módulo */
+#upload-files-module .btn {
+    background: linear-gradient(135deg, #16a085, #1abc9c); /* Fondo degradado verde */
+    color: white;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-10px); /* Empuje inicial */
+    animation: buttonFadeIn 1s ease-out; /* Animación de aparición */
+}
+
+/* Efecto hover en el botón */
+#upload-files-module .btn:hover {
+    background: linear-gradient(135deg, #1abc9c, #2ecc71); /* Cambia el fondo al pasar el mouse */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(0);
+}
+
+/* Efecto active en el botón (clic) */
+#upload-files-module .btn:active {
+    background: linear-gradient(135deg, #1abc9c, #27ae60); /* Fondo más oscuro */
+    transform: scale(0.98); /* Efecto de compresión */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Descripción debajo del botón en el módulo */
+#upload-files-module .link-description {
+    color: #ffffff;
+    font-size: 16px;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+/* Estilo del botón "Ver Bloques" */
+#view-files-container .btn {
+    background: linear-gradient(135deg, #16a085, #1abc9c); /* Fondo degradado verde */
+    color: white;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-10px); /* Empuje inicial */
+    animation: buttonFadeIn 1s ease-out; /* Animación de aparición */
+}
+
+/* Efecto hover en el botón "Ver Bloques" */
+#view-files-container .btn:hover {
+    background: linear-gradient(135deg, #1abc9c, #2ecc71); /* Cambia el fondo al pasar el mouse */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(0);
+}
+
+/* Efecto active en el botón "Ver Bloques" */
+#view-files-container .btn:active {
+    background: linear-gradient(135deg, #1abc9c, #27ae60); /* Fondo más oscuro */
+    transform: scale(0.98); /* Efecto de compresión */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Descripción debajo del botón "Ver Bloques" */
+#view-files-container .link-description {
+    color: #ffffff;
+    font-size: 16px;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    font-weight: 300;
+    line-height: 1.8;
+}
