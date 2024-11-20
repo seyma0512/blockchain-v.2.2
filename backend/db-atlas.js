@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 
 // URL de conexión a MongoDB Atlas
-const url = "mongodb+srv://seyma0512:Sebas1705@blockchain.lzsj1.mongodb.net/?retryWrites=true&w=majority&appName=blockchain";
+const url = "mongodb+srv://seyma0512:Sebas1705@blockchain.lzsj1.mongodb.net/?retryWrites=true&w=majority&tls=true";
 const dbName = 'blockchain-atlas'; // Cambia esto al nombre de tu base de datos
 let db; // Variable para almacenar la instancia de la base de datos
 
@@ -21,6 +21,7 @@ const connectDB = async () => {
                 strict: true,
                 deprecationErrors: true,
             },
+            tlsAllowInvalidCertificates: true, // Permite certificados no válidos
         });
 
         await client.connect();
