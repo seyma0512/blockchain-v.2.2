@@ -246,11 +246,14 @@ app.post('/upload', upload.array('file'), async (req, res) => {
     });
 
     // Agregar un console.log para ver qué datos estás enviando
-    console.log('Enviando datos al servidor 3001:', formData);
+    console.log('Enviando datos al servidor del nodo:', formData);
 
-    // Enviar la data al servidor en el puerto 3001 para que calcule height, timestamp, y previousHash
+    // Seleccionar un nodo con probabilidades 70% para NODE_1_URL y 30% para NODE_2_URL
+    const nodeUrl = Math.random() < 0.7 ? process.env.NODE_1_URL : process.env.NODE_2_URL;
+
+    // Enviar la data al nodo seleccionado
     try {
-        const response = await fetch('https://nodo-1-blockchain-v1-0.onrender.com/receive-data', {
+        const response = await fetch(`${nodeUrl}/receive-data`, {
             method: 'POST',
             body: formData,
         });
@@ -263,20 +266,20 @@ app.post('/upload', upload.array('file'), async (req, res) => {
                 // Si la respuesta es exitosa, envia la confirmación al cliente
                 return res.json({
                     success: true,
-                    message: 'Data enviada con éxito al servidor 3001 y bloque creado',
+                    message: 'Data enviada con éxito al servidor y bloque creado',
                     blockData: result.blockData,
                 });
             } else {
-                return res.status(500).json({ success: false, message: 'Error al enviar la data al servidor 3001' });
+                return res.status(500).json({ success: false, message: 'Error al enviar la data al servidor' });
             }
         } catch (error) {
             console.error('Error al parsear JSON:', error);
             console.log('Respuesta del servidor:', text);
-            return res.status(500).json({ success: false, message: 'Error al procesar la respuesta de 3001' });
+            return res.status(500).json({ success: false, message: 'Error al procesar la respuesta del servidor' });
         }
     } catch (error) {
         console.error('Error al enviar la data:', error);
-        return res.status(500).json({ success: false, message: 'Error al enviar la data al servidor 3001' });
+        return res.status(500).json({ success: false, message: 'Error al enviar la data al servidor' });
     }
 });
 
