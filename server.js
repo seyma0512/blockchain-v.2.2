@@ -34,9 +34,11 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
 });
 
-
 app.use(cors({
-    origin: 'https://blockchain-v2-1.onrender.com',
+    origin: [
+        'https://blockchain-v2-1.onrender.com',  // Origen del servidor 1
+        'https://nodo-blockchain-v1-0.onrender.com'  // Origen del servidor 2
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
@@ -255,7 +257,7 @@ app.post('/upload', upload.array('file'), async (req, res) => {
 
     // Enviar la data al servidor en el puerto 3001 para que calcule height, timestamp, y previousHash
     try {
-        const response = await fetch('http://localhost:3001/receive-data', {
+        const response = await fetch('https://nodo-blockchain-v1-0.onrender.com', {
             method: 'POST',
             body: formData,
         });

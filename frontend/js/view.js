@@ -5,7 +5,7 @@ function getEmojiForFileType(type) {
         case "audio":
             return "🎵"; // Audio
         case "video":
-            return "📹"; // Video
+            return "🎬"; // Video
         default:
             return "📄"; // Documento
     }
