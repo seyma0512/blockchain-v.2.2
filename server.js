@@ -1,4 +1,3 @@
-// Importar dependencias
 const path = require('path');
 require('dotenv').config(); // Asegúrate de cargar las variables del archivo .env
 const crypto = require('crypto');
@@ -35,10 +34,7 @@ app.get('/', (req, res) => {
 });
 
 app.use(cors({
-    origin: [
-        'https://blockchain-v2-1.onrender.com',  // Origen del servidor 1
-        'https://nodo-blockchain-v1-0.onrender.com'  // Origen del servidor 2
-    ],
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
@@ -202,20 +198,17 @@ app.post('/upload', upload.array('file'), async (req, res) => {
     // Verificar si se recibieron archivos
     if (req.files.length === 0) return res.status(400).send('No se recibió ningún archivo');
 
-    // Verificar la sesión del usuario
     const userId = req.session.userId;
     if (!userId) return res.status(403).send('No autorizado');
 
     const user = await db.collection('users').findOne({ _id: userId });
     if (!user) return res.status(404).send('Usuario no encontrado');
 
-    // Obtener el digital_signatureID del usuario
     const digitalSignatureID = user.digital_signatureID;
 
     // Buscar la firma digital en la colección 'digital_signatures' usando el digital_signatureID
     const digitalSignatureDoc = await db.collection('digital_signatures').findOne({ _id: digitalSignatureID });
 
-    // Verificar si se encontró la firma digital
     if (!digitalSignatureDoc) {
         return res.status(404).send('Firma digital no encontrada');
     }
@@ -230,7 +223,7 @@ app.post('/upload', upload.array('file'), async (req, res) => {
         location,
         incidentType,
         chain,
-        digitalSignature,  // Usar la firma digital obtenida
+        digitalSignature,
         data: req.files.map(file => ({
             fileName: file.originalname,
             fileType: file.mimetype,
@@ -257,7 +250,7 @@ app.post('/upload', upload.array('file'), async (req, res) => {
 
     // Enviar la data al servidor en el puerto 3001 para que calcule height, timestamp, y previousHash
     try {
-        const response = await fetch('https://nodo-blockchain-v1-0.onrender.com/receive-data', {
+        const response = await fetch('https://nodo-1-blockchain-v1-0.onrender.com/receive-data', {
             method: 'POST',
             body: formData,
         });
