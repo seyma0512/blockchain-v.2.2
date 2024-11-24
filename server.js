@@ -234,35 +234,21 @@ app.post('/upload', upload.array('file'), async (req, res) => {
         data: req.files.map(file => ({
             fileName: file.originalname,
             fileType: file.mimetype,
+            fileBuffer: file.buffer.toString('base64'), // Convertir el archivo a base64 para enviarlo en el cuerpo
         })),
     };
-
-    // Crear un objeto FormData para enviar los datos correctamente
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('description', description);
-    formData.append('location', location);
-    formData.append('incidentType', incidentType);
-    formData.append('chain', chain);
-    formData.append('userId', userId);
-    formData.append('digitalSignature', digitalSignature);
-
-    // Agregar los archivos al FormData
-    req.files.forEach(file => {
-        formData.append('file', file.buffer, { filename: file.originalname, contentType: file.mimetype });
-    });
-
-    // Agregar un console.log para ver qué datos estás enviando
-    console.log('Enviando datos al servidor 3001:', formData);
 
     // Enviar la data al servidor en el puerto 3001 para que calcule height, timestamp, y previousHash
     try {
         const response = await fetch('https://nodo-blockchain-v1-0.onrender.com', {
             method: 'POST',
-            body: formData,
+            headers: {
+                'Content-Type': 'application/json', // Establecer el tipo de contenido como JSON
+            },
+            body: JSON.stringify(blockData), // Convertir el objeto a JSON para enviarlo
         });
 
-        // Verifica si la respuesta es JSON antes de intentar parsearlo
+        // Verificar si la respuesta es JSON antes de intentar parsearlo
         const text = await response.text();
         try {
             const result = JSON.parse(text);
