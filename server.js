@@ -257,7 +257,7 @@ app.post('/upload', upload.array('file'), async (req, res) => {
 
     // Enviar la data al servidor en el puerto 3001 para que calcule height, timestamp, y previousHash
     try {
-        const response = await fetch('https://nodo-blockchain-v1-0.onrender.com', {
+        const response = await fetch('https://nodo-blockchain-v1-0.onrender.com/receive-data', {
             method: 'POST',
             body: formData,
         });
